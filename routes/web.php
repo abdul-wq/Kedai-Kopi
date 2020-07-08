@@ -28,6 +28,7 @@ Route::get('/produk/detail/{produk}', 'ProdukController@show');
 Route::post('/produk/keranjang/{id}', 'ProdukController@keranjang');
 Route::get('/checkout', 'ProdukController@checkout');
 Route::get('/checkout/hapus/{id}', 'ProdukController@kurangi');
+Route::get('/konfirmasi', 'ProdukController@konfirmasi');
 
 
 

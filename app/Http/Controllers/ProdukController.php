@@ -110,9 +110,10 @@ class ProdukController extends Controller
 
         //Update ke tabel pesanan
         $pesan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
-        $pesan->jumlah_harga = $pesan->jumlah_harga+$produk->harga*$req->jumlah;
+        $pesan->jumlah_harga = $pesanan_detail->jumlah_harga+$produk->harga*$req->jumlah;
         $pesan->update();
         
+         alert()->success('Berhasil','Produk berhasil masuk keranjang, Silahkan Check-out');
         return redirect('/checkout');
         
     }
@@ -131,9 +132,26 @@ class ProdukController extends Controller
     {
         $pesanan_detail = Pesanandetail::where('id', $id)->first();
         $pesan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
-        $pesan->jumlah_harga = $pesanan->jumlah_harga-$pesanan_detail->jumlah_harga;
+        $pesan->jumlah_harga = $pesan->jumlah_harga-$pesanan_detail->jumlah_harga;
         $pesan->update();
 
         return redirect('/checkout');
+    }
+
+    public function konfirmasi()
+    {
+        $pesan = Pesanan::where('produk_id', $produk->id)->where('pesanan_id',$pesan_baru->id)->first();
+        $pesan_id = $pesan->id;
+        $pesan->status = 1;
+
+        $pesanan_detail = Pesanandetail::where('pesanan_id', $pesan->id)->get();
+        foreach ($pesanan_detail as $pd) {
+            $produk = Produk::where('id', $pd->barang_id)->first();
+            $produk->stok = $produk->stok-$pd->jumlah; //mengurangi stok setelah checkout
+            $produk->update();
+        }
+        $pesan->update();
+         alert()->success('Berhasil','Check-out Berhasil di lakukan');
+        return redirect('/home');
     }
 }
