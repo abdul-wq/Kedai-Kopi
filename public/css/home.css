@@ -1,0 +1,152 @@
+
+body{
+	font-family: 'Montserrat', sans-serif;
+
+}
+
+.nav-link{
+	position: relative;
+	margin-top: 10px;
+}
+
+/*Slideshow*/
+.carousel-item img{
+	height: 350px;
+}
+
+.info-panel{
+	text-align: center;
+	margin-top: -20px;
+	border-radius: 30px;
+	border:none;
+	box-shadow: 0 5px 20px #5c230a;
+	background-color: white;
+}
+
+.produk{
+	background-color: #a66037;
+}
+
+/*.gambarproduk{
+	background-color: #913710;
+}
+*/
+.gambarproduk img{
+	text-align: center;
+	width: 370px;
+}
+
+
+.text-tunggal{
+	color: #913710;
+}
+
+.footer{
+	background-color: #913710;
+	opacity: 0.7;
+	color: white;
+
+}
+
+.produk{
+	color: #913710;
+}
+
+.span{
+	font-family: 'Amaranth', sans-serif;
+	font-weight: bold;
+	background-color: #913710;
+}
+
+.cari{
+	background-color: #913710;
+	color: white;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+}
+
+.cari:hover{
+	background-color: #913710;
+	color: white;
+}
+
+
+
+
+
+
+/*DEKSTOP VERSI*/
+@media (min-width: 992px) { 
+
+/*Untuk navbar*/
+.navbar-brand, .nav-link{
+	color: white !important;
+	z-index: 1;
+}
+
+.navbar-brand{
+	margin-left: 50px;
+}
+
+.nav-link{
+	text-transform: uppercase;
+	position: relative;
+	margin-top: 10px;
+	margin-right: 25px;
+}
+
+.carousel{
+	margin-top: -80px;
+}
+
+.carousel-item img{
+	z-index: 2;
+	height: 650px;
+}
+
+/*Info panel*/
+.info-panel{
+	margin-top: -50px;
+	padding: 8px;
+	
+}
+
+.img-panel{
+	float:left;
+}
+
+
+/*.gambarproduk{
+	background-color: #913710;
+}
+*/
+.gambarproduk img{
+	width: 500px;
+}
+
+.carousel-caption{
+	z-index: 3;
+	margin-bottom: 250px;
+}
+
+.tombol{
+	background-color: #913710;
+	padding: 8px;
+	color: white;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 20px;
+}
+
+.tombol:hover{
+	text-decoration: none;
+	color: white;
+}
+
+
+
+
+}
