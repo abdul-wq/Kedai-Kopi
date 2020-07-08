@@ -61,11 +61,6 @@ class ProdukController extends Controller
     }
 
 
-    public function destroy(Produk $produk)
-    {
-        //
-    }
-
     public function keranjang(Request $req, $id)
     {
         // dump($id);
@@ -132,7 +127,7 @@ class ProdukController extends Controller
     {
         $pesanan_detail = Pesanandetail::where('id', $id)->first();
         $pesan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
-        $pesan->jumlah_harga = $pesan->jumlah_harga-$pesanan_detail->jumlah_harga;
+        $pesan->jumlah_harga = $pesan->jumlah_harga - $pesanan_detail->jumlah_harga;
         $pesan->update();
 
         return redirect('/checkout');
@@ -140,18 +135,20 @@ class ProdukController extends Controller
 
     public function konfirmasi()
     {
-        $pesan = Pesanan::where('produk_id', $produk->id)->where('pesanan_id',$pesan_baru->id)->first();
+        $pesan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
         $pesan_id = $pesan->id;
         $pesan->status = 1;
 
         $pesanan_detail = Pesanandetail::where('pesanan_id', $pesan->id)->get();
         foreach ($pesanan_detail as $pd) {
-            $produk = Produk::where('id', $pd->barang_id)->first();
-            $produk->stok = $produk->stok-$pd->jumlah; //mengurangi stok setelah checkout
+            $produk = Produk::where('id', $pd->produk_id)->first();
+            $produk->stok = $produk->stok - $pd->jumlah_pesan; //mengurangi stok setelah checkout
             $produk->update();
         }
+
         $pesan->update();
-         alert()->success('Berhasil','Check-out Berhasil di lakukan');
+
+        alert()->success('Berhasil','Check-out Berhasil di lakukan');
         return redirect('/home');
     }
 }
