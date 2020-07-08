@@ -119,6 +119,11 @@ class ProdukController extends Controller
 
     public function checkout()
     {
-        return view('user/checkout');
+        $pesan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
+        if (!empty($pesan)) {
+            $pesanan_detail = Pesanandetail::where('pesanan_id', $pesan->id)->get();
+        }
+
+        return view('user/checkout', compact('pesan', 'pesanan_detail'));
     }
 }
