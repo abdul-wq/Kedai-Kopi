@@ -126,4 +126,14 @@ class ProdukController extends Controller
 
         return view('user/checkout', compact('pesan', 'pesanan_detail'));
     }
+
+    public function kurangi($id)
+    {
+        $pesanan_detail = Pesanandetail::where('id', $id)->first();
+        $pesan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
+        $pesan->jumlah_harga = $pesanan->jumlah_harga-$pesanan_detail->jumlah_harga;
+        $pesan->update();
+
+        return redirect('/checkout');
+    }
 }

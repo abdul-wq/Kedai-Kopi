@@ -32,7 +32,7 @@
                 <td>{{$pd->jumlah_pesan}}</td>
                 <td>{{$pd->jumlah_harga}}</td>
                 <td>
-                  <a href="" class="btn btn-danger"> Hapus </a>
+                  <a href="/checkout/hapus/{{$pd->id}}" class="btn btn-danger btn-sm"> Hapus </a>
                 </td>
               </tr>
               @endforeach
@@ -40,7 +40,7 @@
                 <td colspan="2">Total Harga</td>
                 <td>:</td>
                 <td>Rp.{{number_format($pesan->jumlah_harga)}}</td>
-                <td><a href="/konfirmasi" class="btn btn-success"> Check-Out </a></td>
+                <td><a href="/konfirmasi" class="btn btn-success btn-sm"> Check-Out </a></td>
               </tr>
           </table>
         </div>
