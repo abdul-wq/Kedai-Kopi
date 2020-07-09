@@ -17,9 +17,12 @@
 <div class="col-lg-6">
 <form>
   <div class="input-group mb-3">
-  <input type="text" name="cari" class="form-control" autocomplete="off" placeholder="Cari Kopi Favoritmu disini..." aria-describedby="button-addon2">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary cari" type="button" id="button-addon2">Cari</button>
+    <form action="/produk/cari" method="post">
+      @csrf
+      <input type="text" name="cari" class="form-control" autocomplete="off" placeholder="Cari Kopi Favoritmu disini..." aria-describedby="button-addon2">
+     <div class="input-group-append">
+    <input type="submit" class="btn btn-primary tombol" name="cari" value="Cari">
+    </form>
   </div>
 </div>
 </form>
@@ -46,18 +49,9 @@
 </div>
 <!-- Akhir Row -->
 
+{{ $produk->links() }}
 
-<h2 class="mt-5 text-tunggal" align="center"> Tentang Kami</h2>
-<div class="row">
-	<div class="col-lg-6 gambarproduk">
-		<img src="{{url('img/kopi2.svg')}}">
-	</div>
-	<div class="col-lg-6">
-		<div class="produk">
-			<h4>Keterangan Produk</h4>
-		</div>
-	</div>
-</div>
+
 </div>
 <!--  Akhir Container -->
 

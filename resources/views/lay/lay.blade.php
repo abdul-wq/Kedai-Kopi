@@ -26,9 +26,6 @@
   
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="#">Home</a>
-      <a class="nav-item nav-link" href="#">Produk</a>
-      <a class="nav-item nav-link" href="#">Tentang</a>
-      <a class="nav-item nav-link" href="#">Kontak</a>
       <a class="nav-item nav-link tombol" href="{{ route('login') }}">Masuk</a>
       <a class="nav-item nav-link tombol" href="{{ route('register') }}">Daftar</a>
 

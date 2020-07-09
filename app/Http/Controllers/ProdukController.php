@@ -8,6 +8,7 @@ use App\Pesanandetail;
 use Auth;
 Use Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProdukController extends Controller
 {
@@ -151,4 +152,6 @@ class ProdukController extends Controller
         alert()->success('Berhasil','Check-out Berhasil di lakukan');
         return redirect('/home');
     }
+
+   
 }

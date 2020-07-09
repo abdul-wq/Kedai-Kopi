@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'HomeController@beranda');
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -29,6 +29,7 @@ Route::post('/produk/keranjang/{id}', 'ProdukController@keranjang');
 Route::get('/checkout', 'ProdukController@checkout');
 Route::get('/checkout/hapus/{id}', 'ProdukController@kurangi');
 Route::get('/konfirmasi', 'ProdukController@konfirmasi');
+Route::post('/produk/cari', 'ProdukController@cari');
 
 
 
