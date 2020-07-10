@@ -22,6 +22,7 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'ProdukController@index');
+Route::get('/produk', 'ProdukController@produk');
 Route::get('create/produk', 'ProdukController@create');
 Route::post('create/produk', 'ProdukController@store');
 Route::get('/produk/detail/{produk}', 'ProdukController@show');

@@ -38,7 +38,7 @@
         <img class="card-img-top" src="{{ url('public/storage/files/ . $p->gambar')}}" alt="Card image cap">
         <div class="card-body">
         <h5 class="card-title text-tunggal">{{$p->nama}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted text-tunggal">{{$p->harga}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted text-tunggal">Harga : Rp.{{number_format($p->harga)}}</h6>
         <a href="/produk/detail/{{$p->id}}" class="tombol float-right"> Lihat </a>
     </div>
   </div>
@@ -55,7 +55,8 @@
 </div>
 <!--  Akhir Container -->
 
-
 @endsection
+
+@section('copyright');
 
 @section('footer')

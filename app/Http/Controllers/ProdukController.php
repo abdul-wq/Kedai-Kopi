@@ -31,6 +31,11 @@ class ProdukController extends Controller
         return view('user/detail', compact('produk'));
     }
 
+    public function produk()
+    {   
+        $produk = Produk::all();
+        return view('user/produk', compact('produk'));
+    }
 
     public function create()
     {

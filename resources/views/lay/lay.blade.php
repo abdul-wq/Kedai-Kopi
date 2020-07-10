@@ -25,7 +25,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
   
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#">Home</a>
+      <a class="nav-item nav-link" href="/produk">Menu</a>
       <a class="nav-item nav-link tombol" href="{{ route('login') }}">Masuk</a>
       <a class="nav-item nav-link tombol" href="{{ route('register') }}">Daftar</a>
 
