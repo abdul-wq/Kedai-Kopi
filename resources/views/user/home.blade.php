@@ -35,7 +35,7 @@
 @foreach ($produk as $p)
 	<div class="col-lg-3">
    		<div class="card mt-3">
-   			<img class="card-img-top" src="{{ url('public/storage/files/ . $p->gambar')}}" alt="Card image cap">
+   			<img class="card-img-top" src="{{ url($p->gambar)}}" alt="Card image cap">
      		<div class="card-body">
   			<h5 class="card-title text-tunggal">{{$p->nama}}</h5>
   			<h6 class="card-subtitle mb-2 text-muted text-tunggal">Harga : Rp.{{number_format($p->harga)}}</h6>
