@@ -48,9 +48,9 @@ class ProdukController extends Controller
         $request->validate([
             'nama' => 'required',
             'keterangan' => 'required',
-            'harga' => 'required',
-            'stok' => 'required',
-            'gambar' => 'required|mimes:jpeg,png,jpg,svg|max:1024',
+            'harga' => 'required|integer',
+            'stok' => 'required|integer',
+            'gambar' => 'required|image',
         ]);
 
         $produk = new Produk;
